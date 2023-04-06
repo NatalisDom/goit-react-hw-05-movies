@@ -1,10 +1,10 @@
 export const Movies = () => {
   return (
     <main>
-      <ul>
-        <li>a</li>
-        <li>b</li>
-      </ul>
+      <div>
+        <input type="text" />
+        <button type="button">Search</button>
+      </div>
     </main>
   );
 };
