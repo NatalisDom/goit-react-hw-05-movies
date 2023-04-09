@@ -14,7 +14,7 @@ export const Container = styled.div`
   img {
     margin-top: 30px;
     margin-right: 30px;
-    
+    box-shadow: 0px 30px 30px 0px rgba(0, 0, 0, 0.65);
   }
 
   div {

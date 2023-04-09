@@ -33,3 +33,14 @@ export async function fetchCastList(id) {
   }
 }
 
+export async function getReviews(id) {
+  try {
+    const response = await axios.get(
+      `/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
