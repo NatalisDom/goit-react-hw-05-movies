@@ -1,16 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieData } from 'components/api/api';
 
 import {
   GoBack,
   Container,
-  Image,
-  Overview,
-  Title,
   Genres,
-  Genre,
-  Text,
+  Information,
+  InformationLink,
 } from './MovieDetalis.styled';
 
 export const MovieDetails = () => {
@@ -29,25 +26,41 @@ export const MovieDetails = () => {
     <main>
       <GoBack to="/"> &#8592; Go back</GoBack>
       {movie && (
-        <Container>
-          <Image
-            src={`${imageUrl}${movie.poster_path}`}
-            alt={movie.title}
-          ></Image>
-          <div>
-            <Title>{movie.title}</Title>
-            <Text>User Score: {Math.round(movie.vote_average * 10)}%</Text>
-            <Overview>Overview</Overview>
-            <Text>{movie.overview}</Text>
-            <Text>
-              <Genres>Genres</Genres>
-              {movie &&
-                movie.genres.map(genres => {
-                  return <Genre key={genres.id}>{genres.name}</Genre>;
-                })}
-            </Text>
-          </div>
-        </Container>
+        <>
+          <Container>
+            <img
+              src={`${imageUrl}${movie.poster_path}`}
+              alt={movie.title}
+            ></img>
+            <div>
+              <h1>{movie.title}</h1>
+              <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
+              <h2>Overview</h2>
+              <p>{movie.overview}</p>
+              <h2>Genres</h2>
+              {movie && (
+                <Genres>
+                  {movie.genres.map(genres => {
+                    return <span key={genres.id}>{genres.name}</span>;
+                  })}
+                </Genres>
+              )}
+            </div>
+          </Container>
+          <hr />
+          <Information>
+            <h3>Additional information</h3>
+            <ul>
+              <li>
+                <InformationLink to="cast">Cast</InformationLink>
+              </li>
+              <li>
+                <InformationLink to="reviews">Reviews</InformationLink>
+              </li>
+            </ul>
+          </Information>
+          <Outlet/>
+        </>
       )}
     </main>
   );
