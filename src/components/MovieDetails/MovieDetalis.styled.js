@@ -79,6 +79,6 @@ export const Information = styled.div`
   }
   h3 {
     margin-top: 30px;
-    font-size: 24px;
+    font-size: 28px;
   }
 `;

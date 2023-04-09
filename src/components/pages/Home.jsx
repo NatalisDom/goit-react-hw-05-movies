@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getTrending } from 'components/api/api';
 import { Link } from 'react-router-dom';
 
-export const Home = () => {
+const Home = () => {
   const [trending, setTrending] = useState([]);
   useEffect(() => {
     async function getTrendingMovie() {

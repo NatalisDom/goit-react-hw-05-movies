@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchCastList } from 'components/api/api';
 import { List } from './Cast.stayled';
 
-export const Cast = () => {
+const Cast = () => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500/';
   const { id } = useParams();
   const [cast, setCast] = useState(null);
@@ -23,7 +23,6 @@ export const Cast = () => {
           {cast.map(({ actor_id, name, character, profile_path }) => {
             return (
               <li key={actor_id}>
-                {console.log(profile_path)}
                 <img
                   src={
                     profile_path
@@ -42,3 +41,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;
