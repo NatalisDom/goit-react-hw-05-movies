@@ -14,6 +14,7 @@ export const Container = styled.div`
   img {
     margin-top: 30px;
     margin-right: 30px;
+    
   }
 
   div {

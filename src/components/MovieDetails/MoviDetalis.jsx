@@ -12,7 +12,7 @@ import {
 
 export const MovieDetails = () => {
   const { id } = useParams();
-  const imageUrl = 'https://image.tmdb.org/t/p/w300/';
+  const imageUrl = 'https://image.tmdb.org/t/p/w500/';
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const MovieDetails = () => {
     });
   }, [id]);
 
-  console.log(movie);
+ 
   return (
     <main>
       <GoBack to="/"> &#8592; Go back</GoBack>
