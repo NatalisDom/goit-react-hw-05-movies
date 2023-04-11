@@ -38,6 +38,7 @@ export const Container = styled.div`
 export const Genres = styled.div`
   display: flex;
   span {
+    margin-right: 30px;
     margin-top: 30px;
     font-size: 24px;
   }
