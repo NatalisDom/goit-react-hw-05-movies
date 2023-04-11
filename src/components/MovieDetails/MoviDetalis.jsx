@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieData } from 'components/api/api';
 
@@ -8,6 +8,7 @@ import {
   Genres,
   Information,
   InformationLink,
+  Buttons,
 } from './MovieDetalis.styled';
 
 const MovieDetails = () => {
@@ -20,11 +21,14 @@ const MovieDetails = () => {
       setMovie(reply);
     });
   }, [id]);
+  
+  const location = useLocation();
 
- 
+  const goBack = location.state?.from ?? '/';
+
   return (
     <main>
-      <GoBack to="/"> &#8592; Go back</GoBack>
+      <GoBack to={goBack}> &#8592; Go back</GoBack>
       {movie && (
         <>
           <Container>
@@ -50,16 +54,16 @@ const MovieDetails = () => {
           <hr />
           <Information>
             <h3>Additional information</h3>
-            <ul>
+            <Buttons>
               <li>
                 <InformationLink to="cast">Cast</InformationLink>
               </li>
               <li>
                 <InformationLink to="reviews">Reviews</InformationLink>
               </li>
-            </ul>
+            </Buttons>
           </Information>
-          <Outlet/>
+          <Outlet />
         </>
       )}
     </main>

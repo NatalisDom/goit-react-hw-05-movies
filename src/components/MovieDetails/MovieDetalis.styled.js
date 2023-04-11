@@ -43,6 +43,14 @@ export const Genres = styled.div`
   }
 `;
 
+export const Information = styled.div`
+ 
+  h3 {
+    margin-top: 30px;
+    font-size: 28px;
+  }
+`;
+
 export const InformationLink = styled(NavLink)`
   border-radius: 10px;
   border: 1px solid blue;
@@ -60,25 +68,16 @@ export const InformationLink = styled(NavLink)`
   }
 `;
 
-export const Information = styled.div`
-  ul {
+
+export const Buttons = styled.ul`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  li {
+    margin-right: 20px;
     display: flex;
     align-items: center;
-    list-style: none;
-
-    margin-top: 30px;
-    padding: 0;
-
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-right: 20px;
-    }
-  }
-  h3 {
-    margin-top: 30px;
-    font-size: 28px;
+    justify-content: center;
   }
 `;
