@@ -5,8 +5,8 @@ import { Link, Header } from './App.styled';
 import { NotFound } from './NotFound/notFound';
 import '../index.css';
 
-const Home = lazy(() => import('./pages/Home'));
-const Movies = lazy(() => import('./pages/Movies'));
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
 const MovieDetails = lazy(() => import('components/MovieDetails/MoviDetalis'));
 const Cast = lazy(() => import('components/Cast/Cast'));
 const Reviews = lazy(() => import('components/Reviews/Reviews'));

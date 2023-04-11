@@ -21,7 +21,7 @@ const Movies = () => {
   }, [getSearch]);
 
   const location = useLocation();
-  // console.log(location);
+  
 
   const handleAlter = e => {
     setRequest(e.target.value);
@@ -29,7 +29,7 @@ const Movies = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    // console.log(getSearch);
+   
     setSearchParams({ getSearch: request });
     setRequest('');
   };
