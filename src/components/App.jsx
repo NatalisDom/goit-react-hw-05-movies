@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Link, Header } from './App.styled';
-
+import { NotFound } from './NotFound/notFound';
 import '../index.css';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -25,7 +25,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/movies" element={<Movies />}></Route>
-          <Route path="/movies/:id" element={<MovieDetails />}>
+          <Route
+            path="/movies/:id"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <MovieDetails />
+              </Suspense>
+            }
+          >
             <Route
               path="cast"
               element={
@@ -43,6 +50,7 @@ export const App = () => {
               }
             />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </div>

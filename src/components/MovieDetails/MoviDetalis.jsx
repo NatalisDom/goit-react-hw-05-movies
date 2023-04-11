@@ -28,7 +28,10 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <GoBack to={goBack}> &#8592; Go back</GoBack>
+      <GoBack to={goBack} state={{ from: location }}>
+        {' '}
+        &#8592; Go back
+      </GoBack>
       {movie && (
         <>
           <Container>
@@ -56,10 +59,14 @@ const MovieDetails = () => {
             <h3>Additional information</h3>
             <Buttons>
               <li>
-                <InformationLink to="cast">Cast</InformationLink>
+                <InformationLink to="cast" state={{ from: goBack }}>
+                  Cast
+                </InformationLink>
               </li>
               <li>
-                <InformationLink to="reviews">Reviews</InformationLink>
+                <InformationLink to="reviews" state={{ from: goBack }}>
+                  Reviews
+                </InformationLink>
               </li>
             </Buttons>
           </Information>

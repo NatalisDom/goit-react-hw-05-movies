@@ -1,6 +1,7 @@
 import { fetchByQuery } from 'components/api/api';
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation, Link } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
+import { List, Films } from './Movies.styled';
 
 const Movies = () => {
   const [info, setInfo] = useState(null);
@@ -12,6 +13,7 @@ const Movies = () => {
     const fetchInfo = async () => {
       const { results } = await fetchByQuery(getSearch);
       setInfo(results);
+      setRequest('');
     };
     if (getSearch) {
       fetchInfo();
@@ -19,7 +21,7 @@ const Movies = () => {
   }, [getSearch]);
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   const handleAlter = e => {
     setRequest(e.target.value);
@@ -27,8 +29,9 @@ const Movies = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(getSearch);
+    // console.log(getSearch);
     setSearchParams({ getSearch: request });
+    setRequest('');
   };
 
   return (
@@ -40,17 +43,17 @@ const Movies = () => {
       <div>
         {info &&
           (info.length > 0 ? (
-            <ul>
+            <List>
               {info.map(({ title, id }) => {
                 return (
                   <li key={id}>
-                    <Link state={{ from: location }} to={`/movies/${id}`}>
+                    <Films state={{ from: location }} to={`/movies/${id}`}>
                       {title}
-                    </Link>
+                    </Films>
                   </li>
                 );
               })}
-            </ul>
+            </List>
           ) : (
             <p>No movies with this title 😢</p>
           ))}
