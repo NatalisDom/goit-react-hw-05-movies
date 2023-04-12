@@ -11,7 +11,7 @@ export const List = styled.ul`
 
   li {
 
-    width: 175px;
+    width: 200px;
     margin-right: 60px;
     margin-bottom: 30px;
    
@@ -23,9 +23,9 @@ export const List = styled.ul`
   img {
     width: 100%;
     display: block;
-    height: 260px;
+    height: auto;
   }
   p {
-    font-size: 28px;
+    font-size: 18px;
   }
 `;
